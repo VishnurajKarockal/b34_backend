@@ -6,6 +6,9 @@ const { noteRouter } = require("./routes/note.routes");
 const app = express();
 app.use(express.json());
 app.use(cors());
+app.get("/", (req, res) => {
+  res.json({ msg: "This is your homepage" });
+});
 app.use("/user", userRouter);
 app.use("/notes", noteRouter);
 app.listen(8080, async () => {
